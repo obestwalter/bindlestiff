@@ -6,6 +6,15 @@
     "../tox",
     "../devpi"
   ],
-  "PYTHON_VERSION": "3.6.0 3.5.2 3.4.5 3.3.6 2.7.13 2.6.9 pypy2-5.6.0",
-  "TMPDIR": "bindlestiff"
+  "INTERPRETERS": [
+    "3.6.0",
+    "3.5.2",
+    "3.4.5",
+    "3.3.6",
+    "2.7.13",
+    "2.6.9",
+    "pypy2-5.6.0"
+  ],
+  "PROJECT_MOUNT": "/vagrant",
+  "VB_MEMORY": "2048"
 }

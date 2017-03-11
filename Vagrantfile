@@ -2,16 +2,17 @@ require 'json'
 require 'pathname'
 require 'tmpdir'
 
-$SETTINGS = JSON.parse(IO.read('settings.json'))
-def get_settings(key)
-   return ENV[key] || $SETTINGS[key]
-end
+name = File.exists?("settings.json") ? 'settings.json' : 'defaults.json'
+$SETTINGS = JSON.parse(IO.read(name))
 
-INTERPRETER_DEFAULTS = "3.6.0 3.5.2 3.4.5 3.3.6 2.7.13 2.6.9 pypy2-5.6.0"
-INTERPRETER = ENV["BINDLESTIFF_INTERPRETERS"] || INTERPRETER_DEFAULTS
-PROJECT_FOLDERS = get_settings("PROJECT_FOLDERS")
-PROJECTS_MOUNT = "/vagrant"
-HOST_TMP_DIR = File.join(Dir.tmpdir(), get_settings("TMPDIR"))
+# Array of python interpreters to use (full semver string)
+INTERPRETERS = $SETTINGS["INTERPRETERS"]
+# Array of paths to projects you want to map into the boxes
+PROJECT_FOLDERS = $SETTINGS["PROJECT_FOLDERS"]
+# path were the PROJECT_FOLDERS will be mpunted to
+PROJECTS_MOUNT = $SETTINGS["PROJECT_MOUNT"]
+# Name of the directory where tmp files will be stored in hosts tempdir
+HOST_TMP_DIR = File.join(Dir.tmpdir(), "bindlestiff")
 GUEST_TMP_DIR = "/home/vagrant/tmp"
 PYENV_BIN_PATH = "/home/vagrant/.pyenv/bin"
 
@@ -19,7 +20,7 @@ Vagrant.configure("2") do |config|
     config.vm.define :linux do |lin|
         lin.vm.box = "obestwalter/tox-dev-arch-linux"
         lin.vm.provider "virtualbox" do |vb|
-            vb.memory = "2048"
+            vb.memory = $SETTINGS["VB_MEMORY"]
         end
 
         # If externally mapped is to slow: add extra vdi or use different box
@@ -49,13 +50,13 @@ Vagrant.configure("2") do |config|
             fi
             export PATH="#{PYENV_BIN_PATH}:$PATH"
             eval "$(pyenv init -)"
-            for version in #{INTERPRETER}; do
+            for version in #{INTERPRETERS.join(" ")}; do
                 pyenv install -s $version
             done
-            pyenv global #{INTERPRETER}
+            pyenv global #{INTERPRETERS.join(" ")}
             pip install -U tox
             # pytest fails with ImportMismatchError if we don't tidy up
-            find /vagrant -name '*.pyc' -delete
+            find #{PROJECTS_MOUNT} -name '*.pyc' -delete
         HEREDOC
         lin.vm.provision "shell",
             name: "install pyenv",
@@ -63,7 +64,7 @@ Vagrant.configure("2") do |config|
             privileged: false
     end
 
-    # No automation here, would use salt, if I got around to it
+    # No automation here yet, just the bare box wating to be configured ...
     config.vm.define :win10 do |win|
         win.vm.box = "inclusivedesign/windows10-eval"
     end
