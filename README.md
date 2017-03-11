@@ -15,7 +15,7 @@ This should run from Windows, OsX and Linux Hosts.
 
 ### Settings
 
-The defaults are shipped in `defaults.json`. They contain what is needed to run tests for pytest/tox/devpi and related projects with [tox](https://tox.readthedocs.io/en/latest/). To override this copy the file to `settings.json` and adjust to your needs.
+The defaults are shipped in [defaults.json](defaults.json). They contain what is needed to run tests for pytest/tox/devpi and related projects with [tox](https://tox.readthedocs.io/en/latest/). To override this copy the file to `settings.json` and adjust to your needs.
 
 If you log in with `vagrant ssh` you will already be in the project mount folder with all configured projects mapped there. You can then descend into the project that you want to test and run `tox`.
 
