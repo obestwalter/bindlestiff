@@ -1,8 +1,8 @@
 # Bindlestiff
 
-Two vagrants with handy travel accessory containing all that is needed to test your projects with many different Python interpreters on Linux and **(not quite there yet)** Windows.
-
 ![bindlestiff](docs/vagrant-with-bindlestiff.jpg)
+
+Two vagrants with handy travel accessory containing all that is needed to test your projects with many different Python interpreters on Linux and **(not quite there yet)** Windows.
 
 ## How to use
 
