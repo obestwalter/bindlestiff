@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
                 sed -i '$ a\\export PATH="$HOME/.pyenv/bin:$PATH"' .bashrc
                 sed -i '$ a\\eval "$(pyenv init -)"' .bashrc
                 sed -i '$ a\\export TMPDIR="#{GUEST_TMP_DIR}"' .bashrc
-                sed -i '$ a\\cd /vagrant' .bashrc
+                sed -i '$ a\\cd #{PROJECTS_MOUNT}' .bashrc
             fi
             export PATH="#{PYENV_BIN_PATH}:$PATH"
             eval "$(pyenv init -)"
