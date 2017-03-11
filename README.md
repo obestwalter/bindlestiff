@@ -11,7 +11,7 @@ Two vagrants with handy travel accessory containing all that is needed to test y
 This should run from Windows, OsX and Linux Hosts.
 
 * [Vagrant](https://www.vagrantup.com/)
-* [VirtualBox](https://www.virtualbox.org/).
+* [VirtualBox](https://www.virtualbox.org/)
 
 ### Settings
 
