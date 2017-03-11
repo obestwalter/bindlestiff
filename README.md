@@ -10,8 +10,10 @@ Vagrant boxes with pre installed Python interpreters and a simple way to configu
 
 ## How to use
 
-$ cd </path/to/bindlestiff/clone>
-$ vagrant up linux
-$ vagrant ssh
-$ cd <one of the mapped projects in PROJECT_FOLDERS>
-$ tox
+The paths in `settings.json` `PROJECT_FOLDERS` will be mapped to `PROJECTS_MOUNT` inside the vagrant box. If you login with `vagrant ssh` you will already be in the project mount folder and only have to descend into the project that you want to test.
+
+    $ cd </path/to/bindlestiff/clone>
+    $ vagrant up linux
+    $ vagrant ssh
+    $ cd <one of the mapped projects in PROJECT_FOLDERS>
+    $ tox
