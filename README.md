@@ -1,17 +1,19 @@
 # Bindlestiff
 
-![bindlestiff](docs/vagrant-with-bindlestiff.jpg)
+[![Project Status: Concept - Minimal or no implementation has been done yet.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept)
 
-Two vagrants with handy travel accessory containing all that is needed to test your projects with many different Python interpreters on Linux and **(not quite there yet)** Windows.
+![bindlestiff](docs/_static/logo.jpg)
 
-This should run from Windows, OsX and Linux Hosts.
+Test a project in different vagrant boxes with pre installed Python versions without the need to set up a vagrant project for it yourself.
 
-## How to use
+This should work on Windows, OsX and Linux.
 
 ### Prerequisites
 
 * [Vagrant](https://www.vagrantup.com/)
 * [VirtualBox](https://www.virtualbox.org/)
+
+## How to use
 
 ### Settings
 
@@ -22,11 +24,8 @@ If you log in with `vagrant ssh` you will already be in the project mount folder
 All settings are documented in the [Vagrantfile](Vagrantfile).
 
     $ cd </path/to/bindlestiff/clone>
-    $ vagrant up linux
+    $ vagrant up lin  # or vagrant up win
     $ vagrant ssh
     $ cd <one of the mapped projects in PROJECT_FOLDERS>
     $ tox
 
-## TODO Windows 10
-
-[install Python non interactive](http://stackoverflow.com/questions/6441353/non-interactive-installation-of-an-additional-python-environment-on-a-computer-w)
