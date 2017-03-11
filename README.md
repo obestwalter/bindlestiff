@@ -2,7 +2,7 @@
 
 The vagrants handy travel accessory containing all that is needed to test your project with many different Python interpreters on Linux and **(not quite yet)** Windows.
 
-![bindlestiff](vagrant-with-bindlestiff.jpg)
+![bindlestiff](docs/vagrant-with-bindlestiff.jpg)
 
 ## What is this?
 
