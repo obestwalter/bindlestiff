@@ -26,3 +26,7 @@ All settings are documented in the [Vagrantfile](Vagrantfile).
     $ vagrant ssh
     $ cd <one of the mapped projects in PROJECT_FOLDERS>
     $ tox
+
+## TODO Windows 10
+
+[install Python non interactive](http://stackoverflow.com/questions/6441353/non-interactive-installation-of-an-additional-python-environment-on-a-computer-w)
