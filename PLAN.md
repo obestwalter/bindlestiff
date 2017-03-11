@@ -38,6 +38,12 @@ Creates, and starts an arch linux box with the current folder mapped into the ma
 
 ### Multi mode
 
+The defaults are shipped in [defaults.json](defaults.json). They contain what is needed to run tests for pytest/tox/devpi and related projects with [tox](https://tox.readthedocs.io/en/latest/). To override this copy the file to `settings.json` and adjust to your needs.
+
+If you log in with `vagrant ssh` you will already be in the project mount folder with all configured projects mapped there. You can then descend into the project that you want to test and run `tox`.
+
+Settings are documented in the [Vagrantfile](Vagrantfile).
+
 ## Generate Vagrantfile
 
 If you are happy with what bindlestiff does you can add your use case to your project by having a customized Vagrantfile generated into your project (jinja2 templating like cookiecutter)
