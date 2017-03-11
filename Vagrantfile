@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
 
         # If externally mapped is to slow: add extra vdi or use different box
         Dir.mkdir(HOST_TMP_DIR) unless File.exists?(HOST_TMP_DIR)
-        lin.vm.synced_folder HOST_TMP_DIR, "/vagrant/home/tmp"
+        lin.vm.synced_folder HOST_TMP_DIR, GUEST_TMP_DIR
 
         PROJECT_FOLDERS.each do |path|
             if File.directory?(path) then
