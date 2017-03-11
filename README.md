@@ -4,11 +4,11 @@
 
 Two vagrants with handy travel accessory containing all that is needed to test your projects with many different Python interpreters on Linux and **(not quite there yet)** Windows.
 
+This should run from Windows, OsX and Linux Hosts.
+
 ## How to use
 
 ### Prerequisites
-
-This should run from Windows, OsX and Linux Hosts.
 
 * [Vagrant](https://www.vagrantup.com/)
 * [VirtualBox](https://www.virtualbox.org/)
