@@ -15,9 +15,9 @@ This should run from Windows, OsX and Linux Hosts.
 
 ### Settings
 
-A `json` file containing paths to projects and other settings. These can be overridden with environment settings of the same name
+The defaults are shipped in `defaults.json`. They contain what is needed to run tests for pytest/tox/devpi and related projects with [tox](https://tox.readthedocs.io/en/latest/). To override this copy the file to `settings.json` and adjust to your needs.
 
-The paths in `settings.json` `PROJECT_FOLDERS` will be mapped to `PROJECTS_MOUNT` inside the vagrant box. If you login with `vagrant ssh` you will already be in the project mount folder and only have to descend into the project that you want to test.
+If you log in with `vagrant ssh` you will already be in the project mount folder with all configured projects mapped there. You can then descend into the project that you want to test and run `tox`.
 
 All settings are documented in the [Vagrantfile](Vagrantfile).
 
