@@ -15,4 +15,3 @@ $ vagrant up linux
 $ vagrant ssh
 $ cd <one of the mapped projects in PROJECT_FOLDERS>
 $ tox
-
